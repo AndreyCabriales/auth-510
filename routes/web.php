@@ -48,10 +48,19 @@ Route::middleware('auth')->group(function () {
 });
 
 //Ruta personalizada para llamar la función de index y mostrar los posteos
-Route::get('/posts',[PostController::class, 'index'])-> name('post.index');
+Route::get('/posts',[PostController::class, 'index'])->name('posts.index');
 
 //Ruta personalizada para crear el registro en la BD de Posts
-Route::post('/posts',[PostController::class, 'store'])->name('post.store');
+Route::post('/posts',[PostController::class, 'store'])->name('posts.store');
+
+//Ruta personalizada para actualizar el registro
+Route::get('/posts/{post}/edit',[PostController::class, 'edit'])->name('posts.edit');
+
+//Ruta personalizada para actualizar el registro
+Route::patch('/posts/{post}',[PostController::class, 'update'])->name('posts.update');
+
+//Ruta personalizada para actualizar el registro
+Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
 
 //Route::get('/posts', function(){
   //  return view('posts');
