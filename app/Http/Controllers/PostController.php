@@ -50,7 +50,7 @@ class PostController extends Controller
         // Post desde User y finalmente a create desde Post, ahora solo pasan los datos
         $request->user()->posts()->create($dataValidates);
 
-        return to_route('posts.index')->with ('status', __('Post created succesfully!'));
+        return to_route('posts.index') ->with ('status', __('Post created succesfully!'));
     }
 
     /**
